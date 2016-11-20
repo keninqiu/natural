@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="ciciApp">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="app.css">
+<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+
+<script src="app.module.js"></script>
+<script src="app.config.js"></script>
+<script src="core/restful.module.js"></script>
+<script src="core/restful.service.js"></script>
+<script src="core/data.module.js"></script>
+<script src="core/data.service.js"></script>
+<script src="product-list/product-list.module.js"></script>
+<script src="product-list/product-list.component.js"></script>
+<script src="product-detail/product-detail.module.js"></script>
+<script src="product-detail/product-detail.component.js"></script>
+<script src="catalog-detail/catalog-detail.module.js"></script>
+<script src="catalog-detail/catalog-detail.component.js"></script>
+<script src="menu/main-menu.module.js"></script>
+<script src="menu/main-menu.component.js"></script>
+
+<script src="app.js"></script>
+
+</head>
+<body>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+</body>
+</html>
+
