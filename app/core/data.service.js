@@ -1,7 +1,7 @@
 angular.
   module('DataService')
   .factory('DataService', function(RestfulApi) {
-  	RestfulApi.get("/api/pub/catalogs")
+  	RestfulApi.get("/api/pub/catalog")
   	.success(function (response) {
    		console.log(response);
    });
