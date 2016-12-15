@@ -4,6 +4,7 @@ angular.
   	RestfulApi.get("/api/pub/catalog")
   	.success(function (response) {
    		console.log(response);
+   		this.catalogs = response;
    });
   return {
       products : 
@@ -41,7 +42,8 @@ angular.
 		        "price" : "price of Soft candy",
 		        "stock" : 1
 		    },    
-		]      
+		]   
+		/*   
       ,
       catalogs: 
 		[
@@ -65,6 +67,7 @@ angular.
 				"parent_id": 0,
 				"name" : "Sea Food"
 			}	
-		]      
+		]   
+		*/   
   };
 });
