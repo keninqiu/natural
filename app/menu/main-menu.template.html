@@ -6,11 +6,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">{{'Surround Natural' | translate }}</a>
+      <a class="navbar-brand" href="#">{{($ctrl.lang == 'zh')?$ctrl.text.title.value_zh:$ctrl.text.title.value}}</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">{{'Home Page' | translate }}</a></li>
+        <li class="active"><a href="#">{{($ctrl.lang == 'zh')?$ctrl.text.home.value_zh:$ctrl.text.home.value}}</a></li>
         <li ng-repeat="catalog in $ctrl.catalogs">
           <a href="/#!/catalog/{{catalog.id}}">
           {{($ctrl.lang == 'zh')?catalog.name_zh:catalog.name}}<span class="flag-icon flag-icon-gr"></span>
@@ -24,12 +24,14 @@
       <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="{{'Search' | translate }}">
+          <input type="text" class="form-control" placeholder="{{($ctrl.lang == 'zh')?$ctrl.text.search.value_zh:$ctrl.text.search.value}}">
         </div>
-        <button type="submit" class="btn btn-default">{{'Submit' | translate }}</button>
+        <button type="submit" class="btn btn-default">{{($ctrl.lang == 'zh')?$ctrl.text.submit.value_zh:$ctrl.text.submit.value}}</button>
       </form>         
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{'Sign Up' | translate }}</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> {{'Login' | translate }}</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{($ctrl.lang == 'zh')?$ctrl.text.signup.value_zh:$ctrl.text.signup.value}}</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> {{($ctrl.lang == 'zh')?$ctrl.text.login.value_zh:$ctrl.text.login.value}}</a></li>
+        <li onclick="setLang('zh');"><img src="/app/img/Canada.png"/></li>
+        <li onclick="setLang('en');"><img src="/app/img/China.png"/></li>
       </ul>
     </div>
   </div>
