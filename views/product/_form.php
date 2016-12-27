@@ -26,6 +26,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price_zh')->textInput() ?>
 
+    <?= $form->field($model, 'specification')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'specification_zh')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'made_in')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'made_in_zh')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'stock')->textInput() ?>
     <?php if($model->isNewRecord) { ?>
     <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>

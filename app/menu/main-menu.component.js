@@ -5,10 +5,17 @@ angular.
   module('mainMenu').
   component('mainMenu', {
     templateUrl: 'menu/main-menu.template.html',
-    controller: ['RestfulApi',
-      function MainMenuController(RestfulApi) {
+    controller: ['RestfulApi','$rootScope','$scope',
+      function MainMenuController(RestfulApi,$rootScope) {
         var that = this;
+
+        that.setLang = function setLang(lang) {
+          that.lang = lang;
+          $rootScope.lang = lang;
+        };
+
         that.lang = 'zh';
+        $rootScope.lang = 'zh';
         RestfulApi.get("/api/pub/catalog")
         .success(function (response) {
           console.log("response from api catalog");
@@ -20,15 +27,10 @@ angular.
 
         RestfulApi.get("/api/pub/text")
         .success(function (response) {
-          console.log("response from api text");
-
-          console.log(response);
-          console.log("end from api text");
 
           var i,item,id,name,value,value_zh;
 
           that.text = {};
-          console.log(response.length);
           for (i = 0; i < response.length; i++) {
               item = response[i];
               id = item.id;
@@ -41,6 +43,7 @@ angular.
               };
           }
 
+          $rootScope.text = that.text;
        }); 
 
        function setLang(lang) {

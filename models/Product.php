@@ -15,6 +15,10 @@ use Yii;
  * @property string $keyword
  * @property integer $price
  * @property integer $price_zh
+ * @property string $specification
+ * @property string $specification_zh
+  * @property string $made_in
+ * @property string $made_in_zh
  * @property integer $stock
  * @property string $image1
  * @property string $image2
@@ -66,14 +70,14 @@ class Product extends \yii\db\ActiveRecord
             [['name'], 'required'],
             [['price', 'price_zh', 'stock'], 'integer'],
             [['name', 'name_zh','image1','image2','image3','image4','image5'], 'string', 'max' => 200],
-            [['description', 'description_zh', 'keyword'], 'string', 'max' => 1000],
+            [['description', 'description_zh', 'keyword','specification','specification_zh','made_in','made_in_zh'], 'string', 'max' => 1000],
             [['name'], 'unique'],
-            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 5],
-            [['imageFile1'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['imageFile2'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['imageFile3'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['imageFile4'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['imageFile5'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg,jpeg', 'maxFiles' => 5],
+            [['imageFile1'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg,jpeg'],
+            [['imageFile2'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg,jpeg'],
+            [['imageFile3'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg,jpeg'],
+            [['imageFile4'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg,jpeg'],
+            [['imageFile5'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg,jpeg'],
 
         ];
     }
@@ -92,6 +96,10 @@ class Product extends \yii\db\ActiveRecord
             'keyword' => Yii::t('app', 'Keyword'),
             'price' => Yii::t('app', 'Price'),
             'price_zh' => Yii::t('app', 'Price Zh'),
+            'specification' => Yii::t('app', 'Specification'),
+            'specification_zh' => Yii::t('app', 'Specification Zh'),
+            'made_in' => Yii::t('app', 'Made In'),
+            'made_in_zh' => Yii::t('app', 'Made In Zh'),                        
             'stock' => Yii::t('app', 'Stock'),
             'image1' => Yii::t('app', 'Image1'),
             'image2' => Yii::t('app', 'Image2'),

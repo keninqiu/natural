@@ -4,15 +4,15 @@
       <!--Sidebar content-->
 
       <p>
-        Search:
+        {{($ctrl.lang == 'zh')?$ctrl.text.search.value_zh:$ctrl.text.search.value}}:
         <input ng-model="$ctrl.query" />
       </p>
 
       <p>
-        Sort by:
+        {{($ctrl.lang == 'zh')?$ctrl.text.sort_by.value_zh:$ctrl.text.sort_by.value}}:
         <select ng-model="$ctrl.orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="id">Newest</option>
+          <option value="name">{{($ctrl.lang == 'zh')?$ctrl.text.alphabetical.value_zh:$ctrl.text.alphabetical.value}}</option>
+          <option value="id">{{($ctrl.lang == 'zh')?$ctrl.text.newest.value_zh:$ctrl.text.newest.value}}</option>
         </select>
       </p>
 
@@ -24,10 +24,10 @@
         <li ng-repeat="product in $ctrl.products | filter:$ctrl.query | orderBy:$ctrl.orderProp"
             class="thumbnail product-list-item">
           <a href="#!/product/{{product.id}}" class="thumb">
-            <img ng-src="{{product.imageUrl}}" alt="{{product.name}}" />
+            <img ng-src="{{product.image1}}" alt="{{($ctrl.lang == 'zh')?product.name_zh:product.name}}" />
           </a>
-          <a href="#!/product/{{product.id}}">{{product.name}}</a>
-          <p>{{product.description}}</p>
+          <a href="#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:product.name}}</a>
+          <p>{{($ctrl.lang == 'zh')?product.description_zh:product.description}}</p>
         </li>
       </ul>
 

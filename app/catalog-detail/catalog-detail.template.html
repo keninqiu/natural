@@ -1,24 +1,29 @@
  <div class="container">
     <div class="well well-sm">
-        <strong>{{$ctrl.catalog.name | translate}}</strong>
+        <strong>{{($ctrl.lang == 'zh')?$ctrl.catalog.name_zh:$ctrl.catalog.name}}</strong>
     </div>
     <div id="products" class="row list-group">
         <div class="item  col-xs-4 col-lg-4" ng-repeat="(key, product) in $ctrl.products">
             <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+            <a href="/app/#!/product/{{product.id}}">
+                <img class="group list-group-image" src="{{product.image1}}" width="400px" height="250px" alt="" />
+            </a>
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">
-                        {{product.name | translate}}</h4>
+                        <a href="/app/#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:pruduct.name}}</a></h4>
                     <p class="group inner list-group-item-text">
-                    	{{product.description | translate}}
+                    	{{($ctrl.lang == 'zh')?product.description_zh:product.description}}
                     </p>
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <p class="lead">
-                                {{product.price | translate}}</p>
+                                {{($ctrl.lang == 'zh')?('¥'+(product.price*5.3).toFixed(0)):('$CAD'+product.price)}}
+                            </p>
                         </div>
                         <div class="col-xs-12 col-md-6">
+                        <!--
                             <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        -->
                         </div>
                     </div>
                 </div>
