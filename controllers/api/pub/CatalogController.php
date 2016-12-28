@@ -1,6 +1,4 @@
 <?php
-
-<?php
 namespace app\controllers\api\pub;
 
 use yii\web\Controller;
