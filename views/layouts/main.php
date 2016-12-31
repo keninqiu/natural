@@ -27,33 +27,35 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Surround Natural',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Catalog', 'url' => ['/catalog/index']],
-            ['label' => 'Product', 'url' => ['/product/index']],
-            ['label' => 'Catalog Product', 'url' => ['/catalogproduct/index']],
-            ['label' => 'Text', 'url' => ['/text/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
+    $menuItems = [
+        ['label' => 'Home', 'url' => ['/site/index']],
+    ];    
+    if(Yii::$app->user->isGuest) {
+        //$menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    }
+    else {
+        $menuItems[] = ['label' => 'Catalog', 'url' => ['/catalog/index']];
+        $menuItems[] = ['label' => 'Product', 'url' => ['/product/index']];
+        $menuItems[] = ['label' => 'Catalog Product', 'url' => ['/catalogproduct/index']];
+        $menuItems[] = ['label' => 'Text', 'url' => ['/text/index']];
+        $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
-                . '</li>'
-            )
-        ],
+                . '</li>';
+    }
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => $menuItems,
     ]);
     NavBar::end();
     ?>
@@ -68,7 +70,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Surround Natural <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
