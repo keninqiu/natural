@@ -24,8 +24,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'price_zh')->textInput() ?>
-
     <?= $form->field($model, 'specification')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'specification_zh')->textInput(['maxlength' => true]) ?>
