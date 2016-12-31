@@ -1,7 +1,7 @@
 angular.
   module('RestfulApi')
-  .service("RestfulApi", function($http){
-  var domain = "http://natural";
+  .service("RestfulApi", function($http,$location){
+  var domain = $location.protocol() + "://" + $location.host();
   var jwt = "";
   this.get = function(url){
 
