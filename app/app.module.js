@@ -10,5 +10,6 @@ var app = angular.module('ciciApp', [
   'catalogDetail',
   'mainMenu',
   'ui.bootstrap',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'angular.filter'
 ]);

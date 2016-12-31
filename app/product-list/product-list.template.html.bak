@@ -1,0 +1,59 @@
+<div class="container-fluid">
+<div class="row">
+  <div id="equalheight">
+    <div class="col-md-3">
+    ddd
+    </div>
+    <div class="col-md-9">
+      <div class="ehdiv">
+        <div class="col-md-3 thumbnail" ng-repeat="product in $ctrl.products | filter:$ctrl.query | orderBy:$ctrl.orderProp">          <a href="#!/product/{{product.id}}" class="thumb">
+              <img ng-src="{{product.image1}}" alt="{{($ctrl.lang == 'zh')?product.name_zh:product.name}}" />
+            </a>
+            <a href="#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:product.name}}</a>
+            <p>{{($ctrl.lang == 'zh')?product.description_zh:product.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p>
+        {{($ctrl.lang == 'zh')?$ctrl.text.search.value_zh:$ctrl.text.search.value}}:
+        <input ng-model="$ctrl.query" />
+      </p>
+
+      <p>
+        {{($ctrl.lang == 'zh')?$ctrl.text.sort_by.value_zh:$ctrl.text.sort_by.value}}:
+        <select ng-model="$ctrl.orderProp">
+          <option value="name">{{($ctrl.lang == 'zh')?$ctrl.text.alphabetical.value_zh:$ctrl.text.alphabetical.value}}</option>
+          <option value="id">{{($ctrl.lang == 'zh')?$ctrl.text.newest.value_zh:$ctrl.text.newest.value}}</option>
+        </select>
+      </p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="product">
+        <li ng-repeat="product in $ctrl.products | filter:$ctrl.query | orderBy:$ctrl.orderProp"
+            class="thumbnail product-list-item">
+          <a href="#!/product/{{product.id}}" class="thumb">
+            <img ng-src="{{product.image1}}" alt="{{($ctrl.lang == 'zh')?product.name_zh:product.name}}" />
+          </a>
+          <a href="#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:product.name}}</a>
+          <p>{{($ctrl.lang == 'zh')?product.description_zh:product.description}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

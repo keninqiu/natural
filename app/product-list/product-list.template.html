@@ -1,7 +1,57 @@
+
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
+      <div class="col s2">
+        {{($ctrl.lang == 'zh')?$ctrl.text.search.value_zh:$ctrl.text.search.value}}:
+        <input ng-model="$ctrl.query" />
+        {{($ctrl.lang == 'zh')?$ctrl.text.sort_by.value_zh:$ctrl.text.sort_by.value}}:
+        <select ng-model="$ctrl.orderProp" class="browser-default">
+          <option value="name">{{($ctrl.lang == 'zh')?$ctrl.text.alphabetical.value_zh:$ctrl.text.alphabetical.value}}</option>
+          <option value="id">{{($ctrl.lang == 'zh')?$ctrl.text.newest.value_zh:$ctrl.text.newest.value}}</option>
+        </select>        
+      </div>
+
+      <div class="col s10">
+        <div class="container-fluid">
+        <div class="row" ng-repeat="letters in $ctrl.products  | filter:$ctrl.query | orderBy:$ctrl.orderProp | chunkBy:3 ">
+          <div class="col s12 m4" ng-repeat="product in letters">
+            <div class="card medium">
+              <div class="card-image">
+              <img materialize="" class="materialboxed" src="{{product.image1}}">
+              <!--
+                <img class="materialboxed" src="{{product.image1}}">
+              -->
+              </div>
+              <div class="card-content">
+                
+                <a href="#!/product/{{product.id}}">
+                {{($ctrl.lang == 'zh')?product.name_zh:product.name}}
+                </a>
+
+                
+              </div>
+              <div class="card-action">
+                <a href="#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?('¥'+(product.price*5.3).toFixed(0)):('$CAD'+product.price)}}</a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+
+<!--
+
+<div class="container-fluid">
+<div class="row">
+
+    <div class="col m2">
 
       <p>
         {{($ctrl.lang == 'zh')?$ctrl.text.search.value_zh:$ctrl.text.search.value}}:
@@ -17,20 +67,31 @@
       </p>
 
     </div>
-    <div class="col-md-10">
-      <!--Body content-->
+  <div class="col m10">
+<div class="container">
+  <div class="section">
 
-      <ul class="product">
-        <li ng-repeat="product in $ctrl.products | filter:$ctrl.query | orderBy:$ctrl.orderProp"
-            class="thumbnail product-list-item">
-          <a href="#!/product/{{product.id}}" class="thumb">
-            <img ng-src="{{product.image1}}" alt="{{($ctrl.lang == 'zh')?product.name_zh:product.name}}" />
-          </a>
-          <a href="#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:product.name}}</a>
-          <p>{{($ctrl.lang == 'zh')?product.description_zh:product.description}}</p>
-        </li>
-      </ul>
-
+    <div class="row" ng-repeat="letters in $ctrl.products  | filter:$ctrl.query | orderBy:$ctrl.orderProp | chunkBy:4 ">
+      <div  class="col s3 m3" ng-repeat="product in letters"  >
+          <div class="icon-block">
+            <h2 class="center light-blue-text">
+              <a href="#!/product/{{product.id}}">
+                <img class="responsive-img" src="{{product.image1}}">
+              </a>
+            </h2>
+            <h7 class="center">{{($ctrl.lang == 'zh')?('¥'+(product.price*5.3).toFixed(0)):('$CAD'+product.price)}}</h7>
+            <p class="light">
+              <a href="#!/product/{{product.id}}">
+                {{($ctrl.lang == 'zh')?product.name_zh:product.name}}
+              </a>
+            </p>
+          </div>
+      </div>
     </div>
+
   </div>
 </div>
+  </div>
+</div>
+</div>
+-->

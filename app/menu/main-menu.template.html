@@ -1,3 +1,36 @@
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">
+        {{($ctrl.lang == 'zh')?$ctrl.text.title.value_zh:$ctrl.text.title.value}}
+
+      </a>
+
+      <ul class="right hide-on-med-and-down">
+        <li ng-repeat="catalog in $ctrl.catalogs">
+          <a href="#!/catalog/{{catalog.id}}">
+            {{($ctrl.lang == 'zh')?catalog.name_zh:catalog.name}}
+          </a>
+        </li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li ng-repeat="catalog in $ctrl.catalogs">
+          <a href="#!/catalog/{{catalog.id}}">
+            {{($ctrl.lang == 'zh')?catalog.name_zh:catalog.name}}
+
+          </a>
+        </li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+
+
+
+
+<!--
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -22,19 +55,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-      <!--
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="{{($ctrl.lang == 'zh')?$ctrl.text.search.value_zh:$ctrl.text.search.value}}">
-        </div>
-        <button type="submit" class="btn btn-default">{{($ctrl.lang == 'zh')?$ctrl.text.submit.value_zh:$ctrl.text.submit.value}}</button>
-      </form>         
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{($ctrl.lang == 'zh')?$ctrl.text.signup.value_zh:$ctrl.text.signup.value}}</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> {{($ctrl.lang == 'zh')?$ctrl.text.login.value_zh:$ctrl.text.login.value}}</a></li>
-        -->
+
         <li ><img ng-click="$ctrl.setLang('en')" src="/app/img/Canada.png"/></li>
         <li ><img ng-click="$ctrl.setLang('zh')" src="/app/img/China.png"/></li>
       </ul>
     </div>
   </div>
 </nav>
+-->

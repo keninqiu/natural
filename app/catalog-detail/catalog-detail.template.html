@@ -1,34 +1,18 @@
  <div class="container">
-    <div class="well well-sm">
-        <strong>{{($ctrl.lang == 'zh')?$ctrl.catalog.name_zh:$ctrl.catalog.name}}</strong>
-    </div>
-    <div id="products" class="row list-group">
-        <div class="item  col-xs-4 col-lg-4" ng-repeat="(key, product) in $ctrl.products">
-            <div class="thumbnail">
-            <a href="/app/#!/product/{{product.id}}">
-                <img class="group list-group-image" src="{{product.image1}}" width="400px" height="250px" alt="" />
-            </a>
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        <a href="/app/#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:pruduct.name}}</a></h4>
-                    <p class="group inner list-group-item-text">
-                    	{{($ctrl.lang == 'zh')?product.description_zh:product.description}}
-                    </p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                {{($ctrl.lang == 'zh')?('¥'+(product.price*5.3).toFixed(0)):('$CAD'+product.price)}}
-                            </p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                        <!--
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col s12 m4 card medium" ng-repeat="(key, product) in $ctrl.products">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{product.image1}}">
         </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><a href="/app/#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?product.name_zh:pruduct.name}}</a><i class="material-icons right">more_vert</i></span>
+          <p><a href="/app/#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?('¥'+(product.price*5.3).toFixed(0)):('$CAD'+product.price)}}</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{($ctrl.lang == 'zh')?product.name_zh:pruduct.name}}<i class="material-icons right">close</i></span>
+          <p>{{($ctrl.lang == 'zh')?product.description_zh:product.description}}</p>
+        </div>
+      </div>
     </div>
 </div>
 
