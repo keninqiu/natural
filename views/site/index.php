@@ -11,7 +11,7 @@ $this->title = 'Surround Natural';
 
         <p class="lead">Surround Natural provide natural food/product made in Canada.</p>
 
-        <p><a class="btn btn-lg btn-success" href="/app">Get started with Shopping</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://www.surroundnatural.com/app">Get started with Shopping</a></p>
     </div>
 
     <div class="body-content">
