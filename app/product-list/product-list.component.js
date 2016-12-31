@@ -9,9 +9,6 @@ angular.
         var that = this;
 
         $document.ready(function () {
-          var aaa = $document.find('.materialboxed');
-          console.log(aaa.length);
-          //$document.getElementsByClassName(".materialboxed").materialbox();
         });
 
         $rootScope.$watch('text',function(newValue, oldValue) {
