@@ -35,7 +35,8 @@ class CatalogproductController extends Controller
      */
     public function actionIndex()
     {
-
+        echo "haha";
+        /*
         $searchModel = new CatalogProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -43,6 +44,7 @@ class CatalogproductController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+        */
     }
 
     /**
