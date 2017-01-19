@@ -1,7 +1,8 @@
  <div class="container">
-    <div class="row">
-      <div class="col s12 m4 card medium" ng-repeat="(key, product) in $ctrl.products" style="height: 200%">
-        <div class="card-image waves-effect waves-block waves-light">
+    <div class="row" >
+      <div class="col s12 m4" ng-repeat="(key, product) in $ctrl.products" >
+      <div class="card medium" style="height: 200%">
+        <div class="card-image waves-effect waves-block waves-light" style="height: 200%">
           <img class="activator" src="{{product.image1}}">
         </div>
         <div class="card-content">
@@ -12,6 +13,7 @@
           <span class="card-title grey-text text-darken-4">{{($ctrl.lang == 'zh')?product.name_zh:pruduct.name}}<i class="material-icons right">close</i></span>
           <p>{{($ctrl.lang == 'zh')?product.description_zh:product.description}}</p>
         </div>
+      </div>
       </div>
     </div>
 </div>
