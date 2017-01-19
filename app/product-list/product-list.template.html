@@ -32,6 +32,12 @@
               </div>
               <div class="card-action">
                 <a href="#!/product/{{product.id}}">{{($ctrl.lang == 'zh')?('¥'+(product.price*5.3).toFixed(0)):('$CAD'+product.price)}}</a>
+                <a href="#!/product/{{product.id}}">
+                {{($ctrl.lang == 'zh')?product.specification_zh:product.specification}}
+                </a>   
+                <a href="#!/product/{{product.id}}">
+                {{($ctrl.lang == 'zh')?product.made_in_zh:product.made_in}}
+                </a>                               
               </div>
             </div>
           </div>
