@@ -15,7 +15,7 @@
         <div class="container-fluid">
         <div class="row" ng-repeat="letters in $ctrl.products  | filter:$ctrl.query | orderBy:$ctrl.orderProp | chunkBy:3 ">
           <div class="col s12 m4" ng-repeat="product in letters">
-            <div class="card medium">
+            <div class="card medium" style="height: 200%">
               <div class="card-image">
               <img materialize="" class="materialboxed" src="{{product.image1}}">
               <!--
