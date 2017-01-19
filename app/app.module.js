@@ -9,6 +9,7 @@ var app = angular.module('ciciApp', [
   'productDetail',
   'catalogDetail',
   'mainMenu',
+  'bottom',
   'ui.bootstrap',
   'pascalprecht.translate',
   'angular.filter'
